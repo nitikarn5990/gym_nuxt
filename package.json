@@ -11,9 +11,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "firebase": "^5.0.2",
     "nuxt": "^1.0.0",
-    "vuetify": "^0.17.3",
-    "@nuxtjs/axios": "^5.0.0"
+    "vuetify": "^0.17.3"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",

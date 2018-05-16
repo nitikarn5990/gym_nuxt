@@ -14,6 +14,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 /* Plugins */
 import nuxt_plugin_axios_2efcd4da from 'nuxt_plugin_axios_2efcd4da' // Source: ./axios.js
 import nuxt_plugin_vuetify_e5914fcc from 'nuxt_plugin_vuetify_e5914fcc' // Source: ..\\plugins\\vuetify
+import nuxt_plugin_firebaseInit_5c9e50aa from 'nuxt_plugin_firebaseInit_5c9e50aa' // Source: ..\\plugins\\firebaseInit
 
 
 // Component: <no-ssr>
@@ -137,6 +138,7 @@ async function createApp (ssrContext) {
   
   if (typeof nuxt_plugin_axios_2efcd4da === 'function') await nuxt_plugin_axios_2efcd4da(app.context, inject)
   if (typeof nuxt_plugin_vuetify_e5914fcc === 'function') await nuxt_plugin_vuetify_e5914fcc(app.context, inject)
+  if (typeof nuxt_plugin_firebaseInit_5c9e50aa === 'function') await nuxt_plugin_firebaseInit_5c9e50aa(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

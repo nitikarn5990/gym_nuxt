@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _6d0b910a = () => import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */).then(m => m.default || m)
+const _4161fa6c = () => import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */).then(m => m.default || m)
 const _15a75fb3 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
@@ -65,9 +65,9 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
-			path: "/inspire",
-			component: _6d0b910a,
-			name: "inspire"
+			path: "/login",
+			component: _4161fa6c,
+			name: "login"
 		},
 		{
 			path: "/",

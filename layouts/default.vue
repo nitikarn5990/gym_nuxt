@@ -39,6 +39,8 @@
         class="accent--text"
         v-text="title"
       ></v-toolbar-title>
+      <v-btn flat to="/" class="accent--text">All Members</v-btn>
+      <v-btn flat to="new-member" class="accent--text">New Member</v-btn>
       <v-spacer></v-spacer>
       <v-toolbar-title
         class="accent--text hidden-xs-only"
@@ -82,5 +84,8 @@
   }
   .application {
     background-color: #f2f2f2 !important;
+  }
+  .picker--date__table .btn.btn--active { /* from index date picker*/
+    color: #1E88E5!important;
   }
 </style>

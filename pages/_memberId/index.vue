@@ -123,7 +123,7 @@ export default {
   },
   created () {
     this.fetchMember()
-  }
+  },
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <v-dialog width="549px" persistent v-model="editDialog">
-    <v-btn flat color="orange" slot="activator">
+    <v-btn flat color="orange" slot="activator" @click="fillDialog()">
       <v-icon left>edit</v-icon>
       Edit
     </v-btn>

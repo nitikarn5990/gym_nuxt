@@ -70,10 +70,10 @@
             <v-layout row>
               <v-flex xs12 sm6 offset-sm3 mb-2>
                 <v-text-field
-                  name="id"
-                  id="id"
-                  label="Id"
-                  v-model="id"
+                  name="memberId"
+                  id="memberId"
+                  label="Member Id"
+                  v-model="memberId"
                   type="number"
                   clearable
                   autocomplete="off"
@@ -124,7 +124,7 @@ export default {
   data () {
     return {
       name: '',
-      id: '',
+      memberId: '',
       mobile: '',
       address: '',
       monthlySubscription: '',
@@ -149,12 +149,13 @@ export default {
         monthlySubscription: this.monthlySubscription,
         notes: this.notes,
         date: this.date,
-        id: this.id
+        memberId: this.memberId
       }
       firebase.database().ref('members').push(newMember)
         .then(
           (data) => {
             alert(`new member ${newMember.name} saved successfully!`)
+            this.$router.push({path: '/'})
           return data
         })
         .catch(

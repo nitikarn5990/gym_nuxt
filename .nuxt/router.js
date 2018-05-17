@@ -6,6 +6,7 @@ Vue.use(Router)
 const _7d5986d6 = () => import('..\\pages\\new-member.vue' /* webpackChunkName: "pages_new-member" */).then(m => m.default || m)
 const _4161fa6c = () => import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */).then(m => m.default || m)
 const _15a75fb3 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _387e5a66 = () => import('..\\pages\\_memberId\\index.vue' /* webpackChunkName: "pages__memberId_index" */).then(m => m.default || m)
 
 
 
@@ -79,6 +80,11 @@ export function createRouter () {
 			path: "/",
 			component: _15a75fb3,
 			name: "index"
+		},
+		{
+			path: "/:memberId",
+			component: _387e5a66,
+			name: "memberId"
 		}
     ],
     

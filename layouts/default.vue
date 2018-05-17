@@ -80,7 +80,7 @@
 <style>
   * {
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
   }
   .application {
     background-color: #f2f2f2 !important;

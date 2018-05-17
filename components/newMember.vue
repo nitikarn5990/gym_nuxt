@@ -8,7 +8,7 @@
     target="_blank"
     class="primary"
   >
-    <v-icon left>add</v-icon>
+    <v-icon left>person_add</v-icon>
     Add New Member
   </v-btn>
 </template>

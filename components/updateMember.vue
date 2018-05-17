@@ -1,8 +1,12 @@
 <template>
   <v-dialog width="549px" persistent v-model="editDialog">
-    <v-btn fab accent slot="activator">
-      <v-icon>edit</v-icon>
+    <v-btn flat color="orange" slot="activator">
+      <v-icon left>edit</v-icon>
+      Edit
     </v-btn>
+    <!-- <v-btn fab accent slot="activator">
+      <v-icon>edit</v-icon>
+    </v-btn> -->
     <v-card>
       <v-container>
         <v-layout row wrap>
@@ -175,6 +179,9 @@ export default {
         })
       this.$parent.$parent.fetchMember()
     }
+  },
+  created () {
+    this.fillDialog()
   }
 }
 </script>

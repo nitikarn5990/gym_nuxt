@@ -22,10 +22,12 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange" slot="activator">Edit</v-btn>
-          <v-btn flat color="red" @click="deleteMember()">Delete</v-btn>
+          <updateMember :info="memberDetail"></updateMember>
+          <v-btn flat color="red" @click="deleteMember()">
+            <v-icon left>delete</v-icon>
+            Delete
+          </v-btn>
         </v-card-actions>
-        <updateMember :info="memberDetail"></updateMember>
       </v-card>
     </v-flex>
   </v-layout>
@@ -96,7 +98,7 @@ export default {
       })
     },
     editMember () {
-
+      // console.log('vvvvvvv')
     },
     deleteMember () {
       if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {

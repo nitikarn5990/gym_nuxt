@@ -1,76 +1,54 @@
 <template>
   <v-app>
-    <!-- <v-navigation-drawer
-      class="accent"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile
-          router
-          :to="item.to"
-          :key="i"
-          v-for="(item, i) in items"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer> -->
     <v-toolbar
       fixed
       app
       :clipped-left="clipped"
       class="primary"
     >
-      <!-- <v-toolbar-side-icon 
-        class="accent--text"
-        @click="drawer = !drawer"
-      ></v-toolbar-side-icon> -->
       <v-toolbar-title
         class="accent--text"
         v-text="title"
       ></v-toolbar-title>
-      <v-btn flat to="/" class="accent--text">All Members</v-btn>
-      <v-btn flat to="new-member" class="accent--text">New Member</v-btn>
+
+      <v-toolbar-title
+        class="accent--text hidden-xs-only"
+      >
+        <v-btn flat href="https://www.osamamohamed.com" class="accent--text">Developed by: OSAMA MOHAMED</v-btn>
+      </v-toolbar-title>
+      
+      <v-btn flat to="/" class="accent--text">
+        <v-icon left>group</v-icon>
+        All Members
+      </v-btn>
+      <v-btn flat to="new-member" class="accent--text">
+        <v-icon left>person_add</v-icon>
+        New Member
+      </v-btn>
+      
       <v-spacer></v-spacer>
       <v-toolbar-title
         class="accent--text hidden-xs-only"
         
-      >Full-Stack Developer</v-toolbar-title>
+      >email@domain.com</v-toolbar-title>
+
     </v-toolbar>
     <v-content>
       <v-container>
         <nuxt />
-        <!-- <download></download> -->
       </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-  // import download from '@/components/download'
 
   export default {
     components: {
-      // download
     },
     data() {
       return {
         clipped: true,
-        // drawer: true,
-        // items: [
-        //   { icon: 'home', title: 'Welcome', to: '/' },
-        // ],
-        // miniVariant: false,
         title: 'Power Core Gym'
       }
     }

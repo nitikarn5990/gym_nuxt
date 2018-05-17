@@ -22,9 +22,10 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange">Edit</v-btn>
+          <v-btn flat color="orange" slot="activator">Edit</v-btn>
           <v-btn flat color="red" @click="deleteMember()">Delete</v-btn>
         </v-card-actions>
+        <updateMember :info="memberDetail"></updateMember>
       </v-card>
     </v-flex>
   </v-layout>
@@ -32,37 +33,20 @@
 
 <script>
 import firebase from 'firebase'
+import updateMember from '@/components/updateMember'
 
 export default {
+  components: {
+    updateMember
+  },
   data () {
     return {
       memberDetail: {}
     }
   },
   methods: {
-    deleteMember () {
-      if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {
-        firebase.database().ref('members').once('value')
-          .then((data) => {
-            const members = []
-            const obj = data.val()
-            for (let key in obj) {
-              if (key == this.$route.params.memberId) {
-                firebase.database().ref('members/' + key).remove()
-                alert(`${this.memberDetail.name} has been deleted successfully!`)
-                this.$router.push({path: '/'})
-              }
-            }
-          })
-          .catch((error) => {
-            alert(error.message)
-          })
-        
-      }
-    }
-  },
-  created () {
-    // firebase.database().ref('members').once('value')
+    fetchMember () {
+      // firebase.database().ref('members').once('value')
     //   .then((data) => {
     //     const members = []
     //     const obj = data.val()
@@ -110,6 +94,33 @@ export default {
       .catch((error) => {
         alert(error.message)
       })
+    },
+    editMember () {
+
+    },
+    deleteMember () {
+      if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {
+        firebase.database().ref('members').once('value')
+          .then((data) => {
+            const members = []
+            const obj = data.val()
+            for (let key in obj) {
+              if (key == this.$route.params.memberId) {
+                firebase.database().ref('members/' + key).remove()
+                alert(`${this.memberDetail.name} has been deleted successfully!`)
+                this.$router.push({path: '/'})
+              }
+            }
+          })
+          .catch((error) => {
+            alert(error.message)
+          })
+        
+      }
+    }
+  },
+  created () {
+    this.fetchMember()
   }
 }
 </script>

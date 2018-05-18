@@ -7,7 +7,7 @@
       class="primary"
     >
     
-      <v-icon left class="accent--text">fitness_center</v-icon>
+      <v-icon left class="accent--text hidden-xs-only">fitness_center</v-icon>
       <v-toolbar-title
         class="accent--text hidden-xs-only"
         v-text="title"
@@ -20,13 +20,20 @@
       </v-toolbar-title>
       
       <v-spacer></v-spacer>
-      <v-btn flat to="/" exact class="accent--text" v-if="userEmail">
+      <v-btn flat to="/" exact class="accent--text hidden-xs-only b-big" v-if="userEmail">
         <v-icon left>group</v-icon>
         All Members
       </v-btn>
-      <v-btn flat to="new-member" exact class="accent--text" v-if="userEmail">
+      <v-btn flat to="new-member" exact class="accent--text hidden-xs-only b-big" v-if="userEmail">
         <v-icon left>person_add</v-icon>
         New Member
+      </v-btn>
+
+      <v-btn flat to="/" exact class="accent--text b-small" v-if="userEmail">
+        <v-icon>group</v-icon>
+      </v-btn>
+      <v-btn flat to="new-member" exact class="accent--text b-small" v-if="userEmail">
+        <v-icon>person_add</v-icon>
       </v-btn>
       
       <v-toolbar-title
@@ -71,9 +78,6 @@ import newMember from '@/components/newMember'
     created() {
       this.userState()
     },
-    watch: {
-      '$route': 'userState'
-    },
     methods: {
       logoutUser () {
         alert(`${firebase.auth().currentUser.email} logged out successfully!`)
@@ -89,12 +93,6 @@ import newMember from '@/components/newMember'
             this.userEmail = null
           }
         })
-        
-        // if (firebase.auth().currentUser) {
-        //   this.userEmail = firebase.auth().currentUser.email
-        // } else {
-        //   this.userEmail = null
-        // }
       }
     },
   }
@@ -104,13 +102,20 @@ import newMember from '@/components/newMember'
   * {
     box-sizing: border-box;
   }
-  /* .btn--active .btn__content:before, .btn:hover .btn__content:before, .btn:focus .btn__content:before {
-    background-color: transparent;
-  } */
   .application {
     background-color: #f2f2f2 !important;
   }
   .picker--date__table .btn.btn--active { /* from index date picker*/
     color: #1E88E5!important;
+  }
+  @media (max-width: 576px) {
+    .picker.picker--date {
+      max-width: 107%;
+    }
+  }
+  @media (min-width: 600px) {
+    .b-small {
+      display: none;
+    }
   }
 </style>

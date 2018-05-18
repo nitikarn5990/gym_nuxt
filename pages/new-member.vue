@@ -4,8 +4,9 @@
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
           <h2 class="primary--text">
-            <v-icon left class="primary--text">person_add</v-icon>
-            Add New Member
+            <v-icon left class="primary--text">fas fa-user-plus</v-icon>
+            &emsp;
+            New Member
           </h2>
         </v-flex>
       </v-layout>
@@ -111,7 +112,7 @@
             <v-layout row justify-center text-xs-center mb-4>
               <v-flex xs12 sm6 offset-sm-3>
                 <v-btn type="submit" class="primary" round :disabled="!formIsValid">
-                  <v-icon left>person_add</v-icon>
+                  <v-icon left>fas fa-user-plus</v-icon>
                   Add New Member
                 </v-btn>
               </v-flex>

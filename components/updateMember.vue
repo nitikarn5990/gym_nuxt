@@ -69,7 +69,7 @@
                 required
                 clearable
                 autocomplete="off"
-                prepend-icon="date_range"
+                prepend-icon="fas fa-calendar"
               >
               </v-text-field>
               <v-text-field
@@ -80,7 +80,7 @@
                 type="number"
                 clearable
                 autocomplete="off"
-                prepend-icon="mdi-account-card-details"
+                prepend-icon="fas fa-id-card-o"
               >
               </v-text-field>
               <v-text-field
@@ -195,3 +195,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+div.input-group__input > i.fas {
+  font-size: 20px!important;
+  color: red!important;
+}
+</style>

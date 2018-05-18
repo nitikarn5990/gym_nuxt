@@ -3,7 +3,8 @@ const pkg = require('./package')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  mode: 'universal',
+  // mode: 'universal',
+  mode: 'spa',
   head: {
     title: 'Power Core Gym',
     meta: [
@@ -12,10 +13,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/x-icon', href: '/dumbbell.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: '//cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' }
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' }
     ]
   },
   loadingIndicator: { 

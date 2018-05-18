@@ -12,6 +12,12 @@
         class="accent--text hidden-xs-only"
         v-text="title"
       ></v-toolbar-title>
+      
+      <v-toolbar-title
+        class="accent--text hidden-sm-and-up"
+        v-text="title"
+        v-if="!userEmail"
+      ></v-toolbar-title>
 
       <v-toolbar-title
         class="accent--text hidden-xs-only"
@@ -21,19 +27,19 @@
       
       <v-spacer></v-spacer>
       <v-btn flat to="/" exact class="accent--text hidden-xs-only" v-if="userEmail">
-        <v-icon left>group</v-icon>
+        <v-icon left>fas fa-users</v-icon>
         All Members
       </v-btn>
       <v-btn flat to="new-member" exact class="accent--text hidden-xs-only" v-if="userEmail">
-        <v-icon left>person_add</v-icon>
+        <v-icon left>fas fa-user-plus</v-icon>
         New Member
       </v-btn>
 
       <v-btn flat to="/" exact class="accent--text b-small" v-if="userEmail">
-        <v-icon>group</v-icon>
+        <v-icon>fas fa-users</v-icon>
       </v-btn>
       <v-btn flat to="new-member" exact class="accent--text b-small" v-if="userEmail">
-        <v-icon>person_add</v-icon>
+        <v-icon>fas fa-user-plus</v-icon>
       </v-btn>
       
       <v-toolbar-title
@@ -42,18 +48,17 @@
 
       <v-btn flat exact class="accent--text" @click="logoutUser()" v-if="userEmail">
         Log out
-        <v-icon right>mdi-logout</v-icon>
+        <v-icon right>fas fa-sign-out</v-icon>
       </v-btn>
       
       <v-btn flat to="/login" exact class="accent--text" @click="logoutUser()" v-if="!userEmail">
         Log in
-        <v-icon right>mdi-login</v-icon>
+        <v-icon right>fas fa-sign-in</v-icon>
       </v-btn>
 
     </v-toolbar>
     <v-content>
       <v-container>
-        <newMember v-if="userEmail"></newMember>
         <nuxt v-on:currentEmail="name($event)"/>
       </v-container>
     </v-content>
@@ -62,11 +67,9 @@
 
 <script>
 import firebase from 'firebase'
-import newMember from '@/components/newMember'
 
   export default {
     components: {
-      newMember
     },
     data() {
       return {
@@ -104,6 +107,15 @@ import newMember from '@/components/newMember'
   }
   .application {
     background-color: #f2f2f2 !important;
+  }
+  i.fas {
+    margin-bottom: 5px;
+  }
+  div.btn__content > i.fas {
+    font-size: 20px!important;
+  }
+  div.input-group__input > i.fas { /* from updateMember component*/
+    font-size: 20px!important;
   }
   .picker--date__table .btn.btn--active { /* from new-member date picker*/
     color: #1E88E5!important;

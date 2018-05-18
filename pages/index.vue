@@ -4,7 +4,8 @@
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
           <h2 class="primary--text">
-            <v-icon left class="primary--text">group</v-icon>
+            <v-icon left class="primary--text">fas fa-users</v-icon>
+            &emsp;
             All Members
           </h2>
         </v-flex>
@@ -25,7 +26,7 @@
               <td class="text-xs-right">{{props.item.address}}</td>
               <td class="text-xs-right">
                 <v-btn :to="props.item.id" flat class="primary--text">
-                  <v-icon left>mdi-eye-outline</v-icon>
+                  <v-icon left>fas fa-eye</v-icon>
                   View
                 </v-btn>
               </td>

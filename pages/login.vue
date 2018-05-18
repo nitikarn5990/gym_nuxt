@@ -20,7 +20,9 @@
                       v-model="email"
                       type="email"
                       autocomplete="off"
-                      required>
+                      prepend-icon="fas fa-at"
+                      required
+                    >
                     </v-text-field>
                   </v-flex>
                 </v-layout>
@@ -33,15 +35,17 @@
                       v-model="password"
                       type="password"
                       autocomplete="off"
-                      required>
+                      prepend-icon="fas fa-key"
+                      required
+                    >
                     </v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
-                  <v-flex xs12>
+                  <v-flex xs12 text-xs-center>
                     <v-btn type="submit" class="primary" :disabled="loading" :loading="loading">
                       Log In
-                      <v-icon right>mdi-login</v-icon>
+                      <v-icon right>fas fa-sign-in</v-icon>
                       <span slot="loader" class="custom-loader">
                         <v-icon light>cached</v-icon>
                       </span>

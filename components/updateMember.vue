@@ -23,6 +23,7 @@
                 required
                 clearable
                 autocomplete="off"
+                prepend-icon="person"
               >
               </v-text-field>
               <v-text-field
@@ -34,6 +35,7 @@
                 type="number"
                 clearable
                 autocomplete="off"
+                prepend-icon="phone_iphone"
               >
               </v-text-field>
               <v-text-field
@@ -44,6 +46,7 @@
                 required
                 clearable
                 autocomplete="off"
+                prepend-icon="home"
               >
               </v-text-field>
               <v-text-field
@@ -55,6 +58,7 @@
                 type="number"
                 clearable
                 autocomplete="off"
+                prepend-icon="attach_money"
               >
               </v-text-field>
               <v-text-field
@@ -65,6 +69,7 @@
                 required
                 clearable
                 autocomplete="off"
+                prepend-icon="date_range"
               >
               </v-text-field>
               <v-text-field
@@ -75,6 +80,7 @@
                 type="number"
                 clearable
                 autocomplete="off"
+                prepend-icon="mdi-account-card-details"
               >
               </v-text-field>
               <v-text-field
@@ -85,6 +91,7 @@
                 multi-line
                 clearable
                 autocomplete="off"
+                prepend-icon="notes"
               >
               </v-text-field>
             </v-card-text>
@@ -94,8 +101,14 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-card-actions>
-              <v-btn flat class="primary--text" @click="onSaveChanges">Save</v-btn>
-              <v-btn flat class="secondary--text darken-1" @click="closeDialog">Close</v-btn>
+              <v-btn flat class="primary--text" @click="onSaveChanges">
+                <v-icon left>check</v-icon>
+                Save
+              </v-btn>
+              <v-btn flat class="secondary--text darken-1" @click="closeDialog">
+                <v-icon left>close</v-icon>
+                Close
+              </v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>

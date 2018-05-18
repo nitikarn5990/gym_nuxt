@@ -19,6 +19,7 @@
                       label="E-Mail"
                       v-model="email"
                       type="email"
+                      autocomplete="off"
                       required>
                     </v-text-field>
                   </v-flex>
@@ -31,6 +32,7 @@
                       label="Password"
                       v-model="password"
                       type="password"
+                      autocomplete="off"
                       required>
                     </v-text-field>
                   </v-flex>

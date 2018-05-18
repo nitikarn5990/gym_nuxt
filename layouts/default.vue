@@ -20,11 +20,11 @@
       </v-toolbar-title>
       
       <v-spacer></v-spacer>
-      <v-btn flat to="/" exact class="accent--text hidden-xs-only b-big" v-if="userEmail">
+      <v-btn flat to="/" exact class="accent--text hidden-xs-only" v-if="userEmail">
         <v-icon left>group</v-icon>
         All Members
       </v-btn>
-      <v-btn flat to="new-member" exact class="accent--text hidden-xs-only b-big" v-if="userEmail">
+      <v-btn flat to="new-member" exact class="accent--text hidden-xs-only" v-if="userEmail">
         <v-icon left>person_add</v-icon>
         New Member
       </v-btn>
@@ -105,11 +105,11 @@ import newMember from '@/components/newMember'
   .application {
     background-color: #f2f2f2 !important;
   }
-  .picker--date__table .btn.btn--active { /* from index date picker*/
+  .picker--date__table .btn.btn--active { /* from new-member date picker*/
     color: #1E88E5!important;
   }
   @media (max-width: 576px) {
-    .picker.picker--date {
+    .picker.picker--date { /* from new-member date picker*/
       max-width: 107%;
     }
   }

@@ -24,7 +24,10 @@
               <td class="text-xs-right">{{props.item.date}}</td>
               <td class="text-xs-right">{{props.item.address}}</td>
               <td class="text-xs-right">
-                <v-btn :to="props.item.id" flat class="primary--text">View</v-btn>
+                <v-btn :to="props.item.id" flat class="primary--text">
+                  <v-icon left>mdi-eye-outline</v-icon>
+                  View
+                </v-btn>
               </td>
             </template>
           </v-data-table>
@@ -50,7 +53,7 @@ export default {
         },
         { text: 'Mobile', value: 'mobile', sortable: true },
         { text: 'Monthly Subscription', value: 'monthlySubscription', sortable: true },
-        { text: 'Date', value: 'date', sortable: true },
+        { text: 'Subscriped At', value: 'date', sortable: true },
         { text: 'Address', value: 'address', sortable: true },
         {
           text: 'view',

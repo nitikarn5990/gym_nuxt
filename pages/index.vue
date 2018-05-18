@@ -69,9 +69,6 @@ export default {
     this.allMembers()
     this.userState()
   },
-  // watch: {
-  //   '$route': 'allMembers'
-  // },
   methods: {
     allMembers () {
       firebase.database().ref('members').once('value')
@@ -93,7 +90,7 @@ export default {
           this.allmembers = members
         })
         .catch((error) => {
-          alert(error.message)
+          console.log(error.message)
         })
     },
     userState () {

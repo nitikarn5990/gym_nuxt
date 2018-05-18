@@ -19,6 +19,7 @@
                       label="E-Mail"
                       v-model="email"
                       type="email"
+                      clearable
                       autocomplete="off"
                       prepend-icon="fas fa-at"
                       required
@@ -34,6 +35,7 @@
                       label="Password"
                       v-model="password"
                       type="password"
+                      clearable
                       autocomplete="off"
                       prepend-icon="fas fa-key"
                       required

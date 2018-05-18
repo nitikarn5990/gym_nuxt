@@ -80,8 +80,8 @@ export default {
         .then(
           user => {
             this.loading = false
-            this.$emit('currentEmail', user.user.email)
             alert(`You logged in as ${user.user.email}`)
+            this.$router.push({path: '/'})
           }
         )
         .catch(

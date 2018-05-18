@@ -4,9 +4,6 @@
       <v-icon left>edit</v-icon>
       Edit
     </v-btn>
-    <!-- <v-btn fab accent slot="activator">
-      <v-icon>edit</v-icon>
-    </v-btn> -->
     <v-card>
       <v-container>
         <v-layout row wrap>

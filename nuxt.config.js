@@ -14,13 +14,12 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: '//cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway:400,700' }
+      { rel: 'stylesheet', href: '//cdn.materialdesignicons.com/2.3.54/css/materialdesignicons.min.css' }
     ]
   },
   loadingIndicator: { 
     color: '#1E88E5',
-    name: 'folding-cube'
+    name: 'cube-grid'
   },
   loading: { color: '#FFFFFF' },
   css: [
@@ -31,13 +30,20 @@ module.exports = {
     '@/plugins/firebaseInit'
   ],
   modules: [
-    '@nuxtjs/axios'
   ],
   axios: {
   },
   build: {
     extend(config, ctx) {
-      
+      // if (ctx.isDev && ctx.isClient) {
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/
+      //   })
+      // }
+
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({

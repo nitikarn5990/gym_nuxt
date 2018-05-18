@@ -1,10 +1,12 @@
 <template>
-  <v-app>
-    <newMember></newMember>
+  <v-app v-if="user">
     <v-container>
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
-          <h2 class="primary--text">All Members</h2>
+          <h2 class="primary--text">
+            <v-icon left class="primary--text">group</v-icon>
+            All Members
+          </h2>
         </v-flex>
       </v-layout>
       <v-layout row>
@@ -34,43 +36,38 @@
 
 <script>
 import firebase from 'firebase'
-import newMember from '@/components/newMember'
 
 export default {
-  components: {
-    newMember
-  },
   data () {
     return {
       allmembers: [],
-        headers: [
-          {
-            text: 'name',
-            align: 'left',
-            sortable: true,
-            value: 'name'
-          },
-          { text: 'Mobile', value: 'mobile', sortable: true },
-          { text: 'Monthly Subscription', value: 'monthlySubscription', sortable: true },
-          { text: 'Date', value: 'date', sortable: true },
-          { text: 'Address', value: 'address', sortable: true },
-          {
-            text: 'view',
-            align: 'center',
-            sortable: false
-          },
-        ],
+      headers: [
+        {
+          text: 'name',
+          align: 'left',
+          sortable: true,
+          value: 'name'
+        },
+        { text: 'Mobile', value: 'mobile', sortable: true },
+        { text: 'Monthly Subscription', value: 'monthlySubscription', sortable: true },
+        { text: 'Date', value: 'date', sortable: true },
+        { text: 'Address', value: 'address', sortable: true },
+        {
+          text: 'view',
+          align: 'center',
+          sortable: false
+        },
+      ],
+      user: false
     }
   },
   created () {
     this.allMembers()
+    this.userState()
   },
-  computed: {
-
-  },
-  watch: {
-    '$route': 'allMembers'
-  },
+  // watch: {
+  //   '$route': 'allMembers'
+  // },
   methods: {
     allMembers () {
       firebase.database().ref('members').once('value')
@@ -94,7 +91,16 @@ export default {
         .catch((error) => {
           alert(error.message)
         })
-    }
+    },
+    userState () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = true
+        } else {
+          this.user = false
+        }
+      })
+    },
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout v-if="user">
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-card-title primary-title>
@@ -43,62 +43,34 @@ export default {
   },
   data () {
     return {
-      memberDetail: {}
+      memberDetail: {},
+      user: false
     }
   },
   methods: {
     fetchMember () {
-      // firebase.database().ref('members').once('value')
-    //   .then((data) => {
-    //     const members = []
-    //     const obj = data.val()
-    //     for (let key in obj) {
-    //       members.push({
-    //         id: key,
-    //         name: obj[key].name,
-    //         mobile: obj[key].mobile,
-    //         address: obj[key].address,
-    //         monthlySubscription: obj[key].monthlySubscription,
-    //         notes: obj[key].notes,
-    //         date: obj[key].date,
-    //         memberId: obj[key].memberId
-    //       })
-    //     }
-    //     members.forEach(member => {
-    //       if (member.id == this.$route.params.memberId) {
-    //         this.memberDetail = member
-    //       }
-    //     })
-    //   })
-    //   .catch((error) => {
-    //     alert(error.message)
-    //   })
-
-    firebase.database().ref('members').once('value')
-      .then((data) => {
-        const members = []
-        const obj = data.val()
-        for (let key in obj) {
-          if (key == this.$route.params.memberId) {
-            this.memberDetail = {
-              id: key,
-              name: obj[key].name,
-              mobile: obj[key].mobile,
-              address: obj[key].address,
-              monthlySubscription: obj[key].monthlySubscription,
-              notes: obj[key].notes,
-              date: obj[key].date,
-              memberId: obj[key].memberId
+      firebase.database().ref('members').once('value')
+        .then((data) => {
+          const members = []
+          const obj = data.val()
+          for (let key in obj) {
+            if (key == this.$route.params.memberId) {
+              this.memberDetail = {
+                id: key,
+                name: obj[key].name,
+                mobile: obj[key].mobile,
+                address: obj[key].address,
+                monthlySubscription: obj[key].monthlySubscription,
+                notes: obj[key].notes,
+                date: obj[key].date,
+                memberId: obj[key].memberId
+              }
             }
           }
-        }
-      })
-      .catch((error) => {
-        alert(error.message)
-      })
-    },
-    editMember () {
-      // console.log('vvvvvvv')
+        })
+        .catch((error) => {
+          alert(error.message)
+        })
     },
     deleteMember () {
       if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {
@@ -119,10 +91,20 @@ export default {
           })
         
       }
-    }
+    },
+    userState () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = true
+        } else {
+          this.user = false
+        }
+      })
+    },
   },
   created () {
     this.fetchMember()
+    this.userState()
   },
 }
 </script>

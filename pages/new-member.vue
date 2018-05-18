@@ -1,9 +1,12 @@
 <template>
-  <v-app>
+  <v-app v-if="user">
     <v-container>
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
-          <h2 class="primary--text">Register a new member</h2>
+          <h2 class="primary--text">
+            <v-icon left class="primary--text">person_add</v-icon>
+            Register a new member
+          </h2>
         </v-flex>
       </v-layout>
       <v-layout row>
@@ -129,8 +132,12 @@ export default {
       address: '',
       monthlySubscription: '',
       notes: '',
-      date: ''
+      date: '',
+      user: false
     }
+  },
+  created () {
+    this.userState()
   },
   computed: {
     formIsValid () {
@@ -138,6 +145,15 @@ export default {
     }
   },
   methods: {
+    userState () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = true
+        } else {
+          this.user = false
+        }
+      })
+    },
     onCreateMember () {
       if (!this.formIsValid) {
         return

@@ -82,7 +82,7 @@ export default {
               if (key == this.$route.params.memberId) {
                 firebase.database().ref('members/' + key).remove()
                 alert(`${this.memberDetail.name} has been deleted successfully!`)
-                this.$router.push({path: '/'})
+                this.$router.push({name: 'index'})
               }
             }
           })

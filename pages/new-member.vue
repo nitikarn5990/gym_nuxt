@@ -175,7 +175,7 @@ export default {
         .then(
           (data) => {
             alert(`new member ${newMember.name} saved successfully!`)
-            this.$router.push({path: '/'})
+            this.$router.push({name: 'index'})
           return data
         })
         .catch(

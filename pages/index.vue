@@ -1,6 +1,6 @@
 <template>
-  <v-app v-if="user">
-    <v-container>
+  <v-app>
+    <v-container v-if="user">
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
           <h2 class="primary--text">
@@ -35,6 +35,10 @@
         </v-flex>
       </v-layout>
     </v-container>
+
+    <v-container v-if="!user">
+      <h1>kejfbvijf</h1>
+    </v-container>
   </v-app>
 </template>
 
@@ -66,6 +70,7 @@ export default {
     }
   },
   created () {
+    console.log(this.$router)
     this.allMembers()
     this.userState()
   },

@@ -22,7 +22,14 @@
       <v-toolbar-title
         class="accent--text hidden-xs-only"
       >
-        <v-btn flat href="https://www.osamamohamed.com" class="accent--text hidden-sm-and-down">Developed by: OSAMA MOHAMED</v-btn>
+        <v-btn
+          flat
+          href="https://www.osamamohamed.com"
+          class="accent--text hidden-sm-and-down"
+          target="_blank"
+        >
+          Developed by: OSAMA MOHAMED
+        </v-btn>
       </v-toolbar-title>
       
       <v-spacer></v-spacer>
@@ -85,7 +92,8 @@ import firebase from 'firebase'
       logoutUser () {
         alert(`${firebase.auth().currentUser.email} logged out successfully!`)
         firebase.auth().signOut()
-        this.$router.push({path: '/login'})
+        // this.$router.push({name: 'login'})
+        this.$router.push({name: 'index'})
         this.userState()
       },
       userState () {

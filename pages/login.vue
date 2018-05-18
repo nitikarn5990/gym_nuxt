@@ -89,7 +89,7 @@ export default {
           user => {
             this.loading = false
             alert(`You logged in as ${user.user.email}`)
-            this.$router.push({path: '/'})
+            this.$router.push({name: 'index'})
           }
         )
         .catch(

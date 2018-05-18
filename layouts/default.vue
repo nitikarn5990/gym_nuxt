@@ -58,9 +58,18 @@
         <v-icon right>fas fa-sign-out</v-icon>
       </v-btn>
       
+      <v-btn flat to="/" exact class="accent--text" v-if="!userEmail">
+        <v-icon left>fas fa-home</v-icon>
+        Home
+      </v-btn>
+      <v-btn flat to="/pricing" exact class="accent--text" v-if="!userEmail">
+        <v-icon left>fas fa-usd</v-icon>
+        Pricing
+      </v-btn>
+
       <v-btn flat to="/login" exact class="accent--text" @click="logoutUser()" v-if="!userEmail">
+        <v-icon left>fas fa-sign-in</v-icon>
         Log in
-        <v-icon right>fas fa-sign-in</v-icon>
       </v-btn>
 
     </v-toolbar>

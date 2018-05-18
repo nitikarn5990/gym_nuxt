@@ -37,7 +37,20 @@
     </v-container>
 
     <v-container v-if="!user">
-      <h1>kejfbvijf</h1>
+      <h2 class="primary--text text-xs-center">Mobile : 01066446642 <br> &emsp; & &ensp; &ensp; 01066446642</h2>
+      <br>
+      <h2 class="primary--text text-xs-center">Manager : Osama</h2>
+      <br>
+      <h2 class="primary--text text-xs-center">Address : El-Fayoum - El-Mesala</h2>
+      <br>
+      <br>
+      <br>
+      <div class="imgs">
+        <img src="https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg">
+        <img src="https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg">
+        <img src="https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg">
+        <img src="https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg">
+      </div>
     </v-container>
   </v-app>
 </template>
@@ -70,7 +83,6 @@ export default {
     }
   },
   created () {
-    console.log(this.$router)
     this.allMembers()
     this.userState()
   },
@@ -112,5 +124,12 @@ export default {
 </script>
 
 <style scoped>
-
+  .imgs {
+    width: 1120px;
+  }
+  .imgs > img {
+    max-width: 50%;
+    max-height: 50%;
+    padding: 5px 5px 5px 5px;
+  }
 </style>

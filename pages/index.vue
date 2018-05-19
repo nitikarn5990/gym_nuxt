@@ -87,7 +87,7 @@ export default {
     this.userState()
   },
   computed: {
-    ser () {
+    State () {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           this.user = true

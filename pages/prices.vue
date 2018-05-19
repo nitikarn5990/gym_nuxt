@@ -192,6 +192,13 @@ export default {
         monthFitnessText: this.monthFitnessText,
         createdAt: this.time.toJSON()
       }
+      firebase.database().ref('prices').remove()
+        .then((data) => {})
+        .catch(
+          (error) => {
+            console.log(error.message)
+          }
+        )
       firebase.database().ref('prices').push(newPrice)
         .then(
           (data) => {

@@ -137,7 +137,8 @@ export default {
       monthlySubscription: '',
       notes: '',
       date: '',
-      user: false
+      user: false,
+      time: new Date(),
     }
   },
   created () {
@@ -169,7 +170,8 @@ export default {
         monthlySubscription: this.monthlySubscription,
         notes: this.notes,
         date: this.date,
-        memberId: this.memberId
+        memberId: this.memberId,
+        createdAt: this.time.toJSON()
       }
       firebase.database().ref('members').push(newMember)
         .then(

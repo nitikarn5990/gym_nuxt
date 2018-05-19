@@ -17,6 +17,8 @@
               <br>
               <strong>Member Id : </strong>{{memberDetail.memberId}}
               <br>
+              <strong>created At : </strong>{{memberDetail.createdAt | DateTime}}
+              <br>
               <strong>Notes : </strong>{{memberDetail.notes}}
             </div>
           </div>
@@ -63,7 +65,8 @@ export default {
                 monthlySubscription: obj[key].monthlySubscription,
                 notes: obj[key].notes,
                 date: obj[key].date,
-                memberId: obj[key].memberId
+                memberId: obj[key].memberId,
+                createdAt: obj[key].createdAt
               }
             }
           }

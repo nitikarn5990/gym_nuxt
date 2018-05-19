@@ -4,6 +4,9 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   // mode: 'universal',
+  // router: {
+  //   base: '/test/'
+  // },
   mode: 'spa',
   head: {
     title: 'Power Core Gym',

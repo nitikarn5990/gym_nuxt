@@ -37,11 +37,11 @@
         <v-icon left>fas fa-users</v-icon>
         All Members
       </v-btn>
-      <v-btn flat to="new-member" exact class="accent--text hidden-xs-only" v-if="userEmail">
+      <v-btn flat to="/new-member" exact class="accent--text hidden-xs-only" v-if="userEmail">
         <v-icon left>fas fa-user-plus</v-icon>
         New Member
       </v-btn>
-      <v-btn flat to="prices" exact class="accent--text hidden-xs-only" v-if="userEmail">
+      <v-btn flat to="/prices" exact class="accent--text hidden-xs-only" v-if="userEmail">
         <v-icon left>attach_money</v-icon>
         Prices
       </v-btn>
@@ -49,7 +49,7 @@
       <v-btn flat to="/" exact class="accent--text b-small" v-if="userEmail">
         <v-icon>fas fa-users</v-icon>
       </v-btn>
-      <v-btn flat to="new-member" exact class="accent--text b-small" v-if="userEmail">
+      <v-btn flat to="/new-member" exact class="accent--text b-small" v-if="userEmail">
         <v-icon>fas fa-user-plus</v-icon>
       </v-btn>
       

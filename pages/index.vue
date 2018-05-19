@@ -86,6 +86,17 @@ export default {
     this.allMembers()
     this.userState()
   },
+  computed: {
+    ser () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = true
+        } else {
+          this.user = false
+        }
+      })
+    },
+  },
   methods: {
     allMembers () {
       firebase.database().ref('members').once('value')

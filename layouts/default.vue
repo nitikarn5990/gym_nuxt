@@ -41,6 +41,10 @@
         <v-icon left>fas fa-user-plus</v-icon>
         New Member
       </v-btn>
+      <v-btn flat to="prices" exact class="accent--text hidden-xs-only" v-if="userEmail">
+        <v-icon left>attach_money</v-icon>
+        Prices
+      </v-btn>
 
       <v-btn flat to="/" exact class="accent--text b-small" v-if="userEmail">
         <v-icon>fas fa-users</v-icon>
@@ -75,7 +79,7 @@
     </v-toolbar>
     <v-content>
       <v-container>
-        <nuxt v-on:currentEmail="name($event)"/>
+        <nuxt />
       </v-container>
     </v-content>
   </v-app>

@@ -4,8 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _d5e3e332 = () => import('..\\pages\\pricing.vue' /* webpackChunkName: "pages_pricing" */).then(m => m.default || m)
-const _4161fa6c = () => import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */).then(m => m.default || m)
 const _7d5986d6 = () => import('..\\pages\\new-member.vue' /* webpackChunkName: "pages_new-member" */).then(m => m.default || m)
+const _4161fa6c = () => import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */).then(m => m.default || m)
+const _1f3161b9 = () => import('..\\pages\\prices.vue' /* webpackChunkName: "pages_prices" */).then(m => m.default || m)
 const _15a75fb3 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 const _387e5a66 = () => import('..\\pages\\_memberId\\index.vue' /* webpackChunkName: "pages__memberId_index" */).then(m => m.default || m)
 
@@ -73,14 +74,19 @@ export function createRouter () {
 			name: "pricing"
 		},
 		{
+			path: "/new-member",
+			component: _7d5986d6,
+			name: "new-member"
+		},
+		{
 			path: "/login",
 			component: _4161fa6c,
 			name: "login"
 		},
 		{
-			path: "/new-member",
-			component: _7d5986d6,
-			name: "new-member"
+			path: "/prices",
+			component: _1f3161b9,
+			name: "prices"
 		},
 		{
 			path: "/",

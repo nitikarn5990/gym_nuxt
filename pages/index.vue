@@ -45,12 +45,22 @@
       <br>
       <br>
       <br>
-      <div class="imgs">
-        <img src="https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg">
-        <img src="https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg">
-        <img src="https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg">
-        <img src="https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg">
-      </div>
+      <v-layout row wrap>
+        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
+            <img src="https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg">
+        </v-flex>
+        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
+            <img src="https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg">
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap>
+        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
+            <img src="https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg">
+        </v-flex>
+        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
+            <img src="https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg">
+        </v-flex>
+      </v-layout>
     </v-container>
   </v-app>
 </template>
@@ -127,12 +137,9 @@ export default {
 </script>
 
 <style scoped>
-  .imgs {
-    width: 1120px;
-  }
-  .imgs > img {
-    max-width: 50%;
-    max-height: 50%;
-    padding: 5px 5px 5px 5px;
+  img {
+    max-width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 </style>

@@ -23,6 +23,7 @@
                   required
                   clearable
                   autocomplete="off"
+                  prepend-icon="person"
                 >
                 </v-text-field>
               </v-flex>
@@ -38,6 +39,7 @@
                   type="number"
                   clearable
                   autocomplete="off"
+                  prepend-icon="phone_iphone"
                 >
                 </v-text-field>
               </v-flex>
@@ -52,6 +54,7 @@
                   required
                   clearable
                   autocomplete="off"
+                  prepend-icon="home"
                 >
                 </v-text-field>
               </v-flex>
@@ -67,6 +70,7 @@
                   clearable
                   autocomplete="off"
                   type="number"
+                  prepend-icon="attach_money"
                 >
                 </v-text-field>
               </v-flex>
@@ -81,6 +85,7 @@
                   type="number"
                   clearable
                   autocomplete="off"
+                  prepend-icon="fas fa-id-card-o"
                 >
                 </v-text-field>
               </v-flex>
@@ -95,13 +100,18 @@
                   multi-line
                   clearable
                   autocomplete="off"
+                  prepend-icon="notes"
                 >
                 </v-text-field>
               </v-flex>
             </v-layout>
             <v-layout row justify-center mb-4>
               <v-flex xs12 sm6 offset-sm-3>
-                <h4>Choose Date</h4>
+                <h4>
+                  <v-icon left>fas fa-calendar</v-icon>
+                  &emsp;
+                  Choose Date
+                </h4>
               </v-flex>
             </v-layout>
             <v-layout row justify-center mb-4>

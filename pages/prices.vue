@@ -132,6 +132,67 @@
                 >
                 </v-text-field>
               </v-flex>
+            </v-layout>
+
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3 mb-2>
+                <v-text-field
+                  name="dayGym"
+                  id="dayGym"
+                  label="Daily Gym"
+                  v-model="dayGym"
+                  type="number"
+                  clearable
+                  autocomplete="off"
+                  prepend-icon="attach_money"
+                >
+                </v-text-field>
+              </v-flex>
+            </v-layout>     
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3 mb-2>
+                <v-text-field
+                  name="dayGymText"
+                  id="dayGymText"
+                  label="Daily Gym Time"
+                  v-model="dayGymText"
+                  type="number"
+                  clearable
+                  autocomplete="off"
+                  prepend-icon="title"
+                >
+                </v-text-field>
+              </v-flex>
+            </v-layout>     
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3 mb-2>
+                <v-text-field
+                  name="dayFitness"
+                  id="dayFitness"
+                  label="Daily Fitness"
+                  v-model="dayFitness"
+                  type="number"
+                  clearable
+                  autocomplete="off"
+                  prepend-icon="attach_money"
+                >
+                </v-text-field>
+              </v-flex>
+            </v-layout>     
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3 mb-2>
+                <v-text-field
+                  name="dayFitnessText"
+                  id="dayFitnessText"
+                  label="Daily Fitness Time"
+                  v-model="dayFitnessText"
+                  type="number"
+                  clearable
+                  autocomplete="off"
+                  prepend-icon="title"
+                >
+                </v-text-field>
+              </v-flex>
             </v-layout>     
                        
             <v-layout row justify-center text-xs-center mb-4>
@@ -163,6 +224,10 @@ export default {
       monthGymText: '',
       halfMonthFitnessText: '',
       monthFitnessText: '',
+      dayGym: '',
+      dayGymText: '',
+      dayFitness: '',
+      dayFitnessText: '',
       user: false,
       time: new Date(),
     }
@@ -190,6 +255,10 @@ export default {
         monthGymText: this.monthGymText,
         halfMonthFitnessText: this.halfMonthFitnessText,
         monthFitnessText: this.monthFitnessText,
+        dayGym: this.dayGym,
+        dayGymText: this.dayGymText,
+        dayFitness: this.dayFitness,
+        dayFitnessText: this.dayFitnessText,
         createdAt: this.time.toJSON()
       }
       firebase.database().ref('prices').remove()

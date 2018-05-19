@@ -3,10 +3,10 @@
     <v-container>
       <v-layout row>
         <v-flex xs12 text-xs-center mb-5>
-          <h2 class="primary--text">Prices</h2>
+          <h2 class="primary--text">Pricing</h2>
         </v-flex>
       </v-layout>
-      <v-layout row wrap>
+      <!-- <v-layout row wrap>
         <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
           <v-card>
             <v-card-actions>
@@ -49,10 +49,57 @@
             </v-card-actions>
           </v-card>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
     </v-container>
   </v-app>
 </template>
+
+<script>
+import firebase from 'firebase'
+
+export default {
+  data () {
+    return {
+      allprices: [],
+    }
+  },
+  created () {
+    this.allPrices()
+  },
+  methods: {
+    allPrices () {
+      firebase.database().ref('prices').once('value')
+        .then((data) => {
+          let prices = {}
+          const obj = data.val()
+          for (let key in obj) {
+            prices = {
+              id: key,
+              halfMonthGym: obj[key].halfMonthGym,
+              monthGym: obj[key].monthGym,
+              halfMonthFitness: obj[key].halfMonthFitness,
+              monthFitness: obj[key].monthFitness,
+              halfMonthGymText: obj[key].halfMonthGymText,
+              monthGymText: obj[key].monthGymText,
+              halfMonthFitnessText: obj[key].halfMonthFitnessText,
+              monthFitnessText: obj[key].monthFitnessText,
+              dayGym: obj[key].dayGym,
+              dayGymText: obj[key].dayGymText,
+              dayFitness: obj[key].dayFitness,
+              dayFitnessText: obj[key].dayFitnessText,
+              createdAt: obj[key].createdAt
+            }
+          }
+          this.allprices = prices
+        })
+        .catch((error) => {
+          console.log(error.message)
+        })
+    },
+  }
+}
+</script>
+
 
 <style scoped>
   .card {

@@ -108,6 +108,7 @@ import firebase from 'firebase'
         // this.$router.push({name: 'login'})
         this.$router.push({name: 'index'})
         this.userState()
+        this.$bus.$emit('logged')
       },
       userState () {
         firebase.auth().onAuthStateChanged((user) => {

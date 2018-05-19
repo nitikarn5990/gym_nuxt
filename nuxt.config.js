@@ -28,7 +28,8 @@ module.exports = {
   ],
   plugins: [
     '@/plugins/vuetify',
-    '@/plugins/firebaseInit'
+    '@/plugins/firebaseInit',
+    '@/plugins/eventBus.js'
   ],
   modules: [
   ],

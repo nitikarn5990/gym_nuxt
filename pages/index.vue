@@ -85,17 +85,9 @@ export default {
   created () {
     this.allMembers()
     this.userState()
-  },
-  computed: {
-    State () {
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          this.user = true
-        } else {
-          this.user = false
-        }
-      })
-    },
+    this.$bus.$on('logged', (data) => {
+      this.userState()
+    })
   },
   methods: {
     allMembers () {

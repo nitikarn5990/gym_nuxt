@@ -99,6 +99,7 @@ export default {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           this.user = true
+          this.fetchMember()
         } else {
           this.user = false
         }
@@ -109,6 +110,10 @@ export default {
     this.fetchMember()
     this.userState()
   },
+  computed () {
+    this.fetchMember()
+    this.userState()
+  }
 }
 </script>
 

@@ -4,7 +4,7 @@
       <v-card>
         <v-card-title primary-title>
           <div>
-            <h3 class="headline mb-0">Name : {{memberDetail.name}}</h3>
+            <h3 class="headline mb-0">Name : <span class="primary--text">{{memberDetail.name}}</span></h3>
             <br>
             <div class="information">
               <strong>Mobile : </strong>{{memberDetail.mobile}}

@@ -1,6 +1,6 @@
 <template>
   <v-dialog width="549px" persistent v-model="editDialog">
-    <v-btn flat color="orange" slot="activator" @click="fillDialog()">
+    <v-btn flat class="primary--text" slot="activator" @click="fillDialog()">
       <v-icon left>edit</v-icon>
       Edit
     </v-btn>
@@ -8,7 +8,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card-title>Edit Member</v-card-title>
+            <v-card-title><h3 style="margin: auto;">Edit Member : <span class="primary--text">{{editName}}</span></h3></v-card-title>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>

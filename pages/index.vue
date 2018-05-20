@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container v-if="user">
+    <v-container v-if="user && !imgs">
       <v-layout row>
         <v-flex  xs12 sm6 offset-sm3 text-xs-center mb-4>
           <h2 class="primary--text">
@@ -36,7 +36,7 @@
       </v-layout>
     </v-container>
 
-    <v-container v-if="!user">
+    <v-container v-if="!user && imgs">
       <v-layout row>
         <v-flex xs12 mb-4>
           <carousel :imgSrc="imgs"></carousel>
@@ -48,7 +48,6 @@
       <h2 class="primary--text text-xs-center">Manager : Osama</h2>
       <br>
       <h2 class="primary--text text-xs-center">Address : El-Fayoum - Egypt</h2>
-
     </v-container>
   </v-app>
 </template>
@@ -82,12 +81,7 @@ export default {
         },
       ],
       user: false,
-      imgs: [
-        '/gym_nuxt/img/1.jpg',
-        '/gym_nuxt/img/2.jpg',
-        '/gym_nuxt/img/4.jpg',
-        '/gym_nuxt/img/3.jpg',
-      ]
+      imgs: null
     }
   },
   created () {
@@ -127,6 +121,12 @@ export default {
           this.user = true
         } else {
           this.user = false
+          this.imgs = [
+            '/gym_nuxt/img/1.jpg',
+            '/gym_nuxt/img/2.jpg',
+            '/gym_nuxt/img/4.jpg',
+            '/gym_nuxt/img/3.jpg',
+          ]
         }
       })
     },

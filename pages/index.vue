@@ -83,10 +83,10 @@ export default {
       ],
       user: false,
       imgs: [
-        'http://wallsdesk.com/wp-content/uploads/2016/10/Gym-HD-Background-.jpg',
-        'http://wallpaperstop.net/wp-content/uploads/2017/10/Gym%20HD%20Background.jpg',
-        'http://wallvie.com/wp-content/uploads/2017/12/Fitness-Motivation-Wallpaper-Including-Gym-Quotes-Hd-Collection-Images-Black-Motivational.jpg',
-        'http://kb4images.com/images/gym-wallpaper/36085218-gym-wallpaper.jpg',
+        '/gym_nuxt/img/1.jpg',
+        '/gym_nuxt/img/2.jpg',
+        '/gym_nuxt/img/4.jpg',
+        '/gym_nuxt/img/3.jpg',
       ]
     }
   },

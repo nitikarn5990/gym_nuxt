@@ -108,10 +108,6 @@ export default {
   created () {
     this.fetchMember()
     this.userState()
-    this.$bus.$on('reload', (data) => {
-      this.userState()
-      this.fetchMember()
-    })
   },
 }
 </script>

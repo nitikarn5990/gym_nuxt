@@ -114,6 +114,7 @@ import firebase from 'firebase'
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             this.userEmail = firebase.auth().currentUser.email
+            this.$bus.$emit('reload')
           } else {
             this.userEmail = null
           }

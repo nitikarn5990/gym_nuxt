@@ -99,7 +99,6 @@ export default {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           this.user = true
-          this.fetchMember()
         } else {
           this.user = false
         }
@@ -109,11 +108,11 @@ export default {
   created () {
     this.fetchMember()
     this.userState()
+    this.$bus.$on('reload', (data) => {
+      this.userState()
+      this.fetchMember()
+    })
   },
-  computed () {
-    this.fetchMember()
-    this.userState()
-  }
 }
 </script>
 

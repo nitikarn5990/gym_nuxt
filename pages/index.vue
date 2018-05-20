@@ -25,7 +25,7 @@
               <td class="text-xs-right">{{props.item.date}}</td>
               <td class="text-xs-right">{{props.item.address}}</td>
               <td class="text-xs-right">
-                <v-btn :to="props.item.id" flat class="primary--text">
+                <v-btn :to="'/' + props.item.id" flat class="primary--text">
                   <v-icon left>fas fa-eye</v-icon>
                   View
                 </v-btn>
@@ -37,6 +37,12 @@
     </v-container>
 
     <v-container v-if="!user">
+      <v-layout row>
+        <v-flex xs12 mb-4>
+          <carousel :imgSrc="imgs"></carousel>
+        </v-flex>
+      </v-layout>
+      
       <h2 class="primary--text text-xs-center">Mobile : 01066446642 <br> &emsp; & &ensp; &ensp; 01066446642</h2>
       <br>
       <h2 class="primary--text text-xs-center">Manager : Osama</h2>
@@ -45,7 +51,7 @@
       <br>
       <br>
       <br>
-      <v-layout row wrap>
+      <!-- <v-layout row wrap>
         <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
             <img src="https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg">
         </v-flex>
@@ -60,15 +66,19 @@
         <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
             <img src="https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg">
         </v-flex>
-      </v-layout>
+      </v-layout> -->
     </v-container>
   </v-app>
 </template>
 
 <script>
 import firebase from 'firebase'
+import carousel from '@/components/carousel'
 
 export default {
+  components: {
+    carousel
+  },
   data () {
     return {
       allmembers: [],
@@ -89,7 +99,13 @@ export default {
           sortable: false
         },
       ],
-      user: false
+      user: false,
+      imgs: [
+        'https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg',
+        'https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg',
+        'https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg',
+        'https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg',
+      ]
     }
   },
   created () {

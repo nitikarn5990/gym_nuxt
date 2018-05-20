@@ -43,11 +43,12 @@
         </v-flex>
       </v-layout>
       
-      <h2 class="primary--text text-xs-center">Mobile : 01066446642 <br> &emsp; & &ensp; &ensp; 01066446642</h2>
+      <!-- <h2 class="primary--text text-xs-center">Mobile : 01066446642 <br> &emsp; & &ensp; &ensp; 01066446642</h2> -->
+      <h2 class="primary--text text-xs-center">Mobile : 01066446642</h2>
       <br>
       <h2 class="primary--text text-xs-center">Manager : Osama</h2>
       <br>
-      <h2 class="primary--text text-xs-center">Address : El-Fayoum - El-Mesala</h2>
+      <h2 class="primary--text text-xs-center">Address : El-Fayoum - Egypt</h2>
       <br>
       <br>
       <br>

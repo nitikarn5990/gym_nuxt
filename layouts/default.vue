@@ -94,7 +94,7 @@ import firebase from 'firebase'
     data() {
       return {
         clipped: true,
-        title: 'Power Core Gym',
+        title: 'Gym',
         userEmail: null
       }
     },

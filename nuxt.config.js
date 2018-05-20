@@ -5,11 +5,11 @@ const nodeExternals = require('webpack-node-externals')
 module.exports = {
   // mode: 'universal',
   // router: {
-  //   base: '/test/'
+  //   base: '/gym_nuxt/'
   // },
   mode: 'spa',
   head: {
-    title: 'Power Core Gym',
+    title: 'Gym',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

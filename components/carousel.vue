@@ -1,7 +1,6 @@
 <template>
   <div class="test">
     <v-carousel
-      hide-delimiters
     >
       <!-- interval="10000"
       :hide-controls="true"

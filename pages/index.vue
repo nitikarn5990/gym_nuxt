@@ -42,32 +42,13 @@
           <carousel :imgSrc="imgs"></carousel>
         </v-flex>
       </v-layout>
-      
-      <!-- <h2 class="primary--text text-xs-center">Mobile : 01066446642 <br> &emsp; & &ensp; &ensp; 01066446642</h2> -->
+      <br>
       <h2 class="primary--text text-xs-center">Mobile : 01066446642</h2>
       <br>
       <h2 class="primary--text text-xs-center">Manager : Osama</h2>
       <br>
       <h2 class="primary--text text-xs-center">Address : El-Fayoum - Egypt</h2>
-      <br>
-      <br>
-      <br>
-      <!-- <v-layout row wrap>
-        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
-            <img src="https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg">
-        </v-flex>
-        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
-            <img src="https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg">
-        </v-flex>
-      </v-layout>
-      <v-layout row wrap>
-        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
-            <img src="https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg">
-        </v-flex>
-        <v-flex xs12 sm8 md6 mb-5 offset-sm2 offset-md0>
-            <img src="https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg">
-        </v-flex>
-      </v-layout> -->
+
     </v-container>
   </v-app>
 </template>
@@ -102,10 +83,10 @@ export default {
       ],
       user: false,
       imgs: [
-        'https://www.planwallpaper.com/static/images/beach-cool-wallpaper-hd_1_A4ns2xa.jpg',
-        'https://www.planwallpaper.com/static/images/cool_wallpaper_hd_Bfdfvc0.jpg',
-        'https://www.planwallpaper.com/static/images/bicycle-1280x720_twJTF9m.jpg',
-        'https://www.planwallpaper.com/static/images/cool-wallpaper-1_oCMesCc.jpg',
+        'http://wallsdesk.com/wp-content/uploads/2016/10/Gym-HD-Background-.jpg',
+        'http://wallpaperstop.net/wp-content/uploads/2017/10/Gym%20HD%20Background.jpg',
+        'http://wallvie.com/wp-content/uploads/2017/12/Fitness-Motivation-Wallpaper-Including-Gym-Quotes-Hd-Collection-Images-Black-Motivational.jpg',
+        'http://kb4images.com/images/gym-wallpaper/36085218-gym-wallpaper.jpg',
       ]
     }
   },

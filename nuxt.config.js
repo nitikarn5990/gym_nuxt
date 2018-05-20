@@ -4,9 +4,9 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   // mode: 'universal',
-  // router: {
-  //   base: '/gym_nuxt/'
-  // },
+  router: {
+    base: '/gym_nuxt/'
+  },
   mode: 'spa',
   head: {
     title: 'Gym',

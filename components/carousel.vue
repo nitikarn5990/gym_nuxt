@@ -55,13 +55,13 @@
   }
   @media (max-width: 576px) {
     .test {
-      height: 200px;
+      // height: 400px;
     }
     .carousel {
-      height: 70%;
+      height: 80%;
     }
     .carousel__item {
-      background-size: cover;
+      // background-size: contain;
     }
   }
   // .carousel .carousel__right i.icon,

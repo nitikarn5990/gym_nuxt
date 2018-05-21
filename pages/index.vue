@@ -18,8 +18,8 @@
               <v-icon class="primary--text hidden-xs-only" left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
               <h4 class="primary--text hidden-xs-only">All Members</h4>
               <v-spacer></v-spacer>
-              <newmember></newmember>
-              <v-spacer class="hidden-xs-only"></v-spacer>
+              <newmember class="new-member"></newmember>
+              <!-- <v-spacer class="hidden-xs-only"></v-spacer> -->
               <v-text-field
                 v-model="allmembers.name"
                 append-icon="search"
@@ -58,7 +58,7 @@
                   <update :info="props.item"></update>
                 <!-- </td>
                 <td class="text-xs-center"> -->
-                  <v-btn class="mx-0" flat color="red" @click="deleteMember(props.item.name, props.item.id)">
+                  <v-btn flat color="red" class="mx-0" @click="deleteMember(props.item.name, props.item.id)">
                     <v-icon left>delete</v-icon>
                     Delete
                   </v-btn>
@@ -209,5 +209,9 @@ export default {
     max-width: 100%;
     padding-left: 5px;
     padding-right: 5px;
+  }
+  .new-member {
+    position: relative;
+    left: -5%;
   }
 </style>

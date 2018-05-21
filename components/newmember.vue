@@ -117,19 +117,11 @@
                     </h4>
                   </v-flex>
                 </v-layout>
-                <v-layout row justify-center mb-4>
-                  <v-flex xs12 sm6 offset-sm-3>
+                <v-layout row mb-4>
+                  <v-flex xs12>
                     <v-date-picker v-model="date"></v-date-picker>
                   </v-flex>
                 </v-layout>
-                <!-- <v-layout row justify-center text-xs-center mb-4>
-                  <v-flex xs12 sm6 offset-sm-3>
-                    <v-btn type="submit" class="primary" round :disabled="!formIsValid">
-                      <v-icon left class="accent--text">fas fa-user-plus</v-icon>
-                      Add New Member
-                    </v-btn>
-                  </v-flex>
-                </v-layout> -->
               </form>
             </v-card-text>
           </v-flex>
@@ -138,13 +130,9 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-card-actions>
-              <!-- <v-btn flat class="primary--text" @click="onSaveChanges">
-                <v-icon left>check</v-icon>
-                Save
-              </v-btn> -->
               <v-btn flat class="primary--text" @click="onCreateMember" :disabled="!formIsValid">
                 <v-icon left class="primary--text">fas fa-user-plus</v-icon>
-                Add New Member
+                Add
               </v-btn>
               <v-btn flat class="secondary--text darken-1" @click="closeDialog">
                 <v-icon left>close</v-icon>
@@ -244,5 +232,9 @@ export default {
 </script>
 
 <style scoped>
-
+@media (max-width: 576px) {
+  .picker.picker--date {
+    max-width: 124%;
+  }
+}
 </style>

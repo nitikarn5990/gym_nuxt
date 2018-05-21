@@ -61,7 +61,7 @@
                 prepend-icon="attach_money"
               >
               </v-text-field>
-              <v-text-field
+              <!-- <v-text-field
                 name="date"
                 id="date"
                 label="Date"
@@ -71,7 +71,23 @@
                 autocomplete="off"
                 prepend-icon="fas fa-calendar"
               >
-              </v-text-field>
+              </v-text-field> -->
+
+              <v-layout row mb-4>
+                <v-flex xs12>
+                  <h4>
+                    <v-icon left>fas fa-calendar</v-icon>
+                    &emsp;
+                    Choose Date
+                  </h4>
+                </v-flex>
+              </v-layout>
+              <v-layout row mb-4>
+                <v-flex xs12>
+                  <v-date-picker v-model="editDate"></v-date-picker>
+                </v-flex>
+              </v-layout>
+
               <v-text-field
                 name="memberId"
                 id="memberId"
@@ -200,5 +216,10 @@ export default {
 div.input-group__input > i.fas {
   font-size: 20px!important;
   color: red!important;
+}
+@media (max-width: 576px) {
+  .picker.picker--date {
+    max-width: 124%;
+  }
 }
 </style>

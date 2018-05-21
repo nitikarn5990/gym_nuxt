@@ -15,19 +15,32 @@
 
           <v-card>
             <v-card-title>
-              <v-icon class="primary--text hidden-xs-only" left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
-              <h4 class="primary--text hidden-xs-only">All Members</h4>
-              <v-spacer></v-spacer>
-              <newmember class="new-member"></newmember>
-              <!-- <v-spacer class="hidden-xs-only"></v-spacer> -->
-              <v-text-field
-                v-model="allmembers.name"
-                append-icon="search"
-                label="Search"
-                hide-details
-              ></v-text-field>
+              <!-- <v-layout row wrap>
+                <v-flex xs12>
+                  <h4 class="primary--text hidden-xs-only">
+                    <v-icon class="primary--text hidden-xs-only" left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
+                    All Members
+                  </h4>
+                </v-flex>
+              </v-layout> -->
+              <v-layout row>
+                <v-flex xs12 offset-xs0 text-xs-center>
+                  <newmember></newmember>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs8 offset-xs2>
+                  <v-text-field
+                    v-model="allmembers.name"
+                    append-icon="search"
+                    label="Search"
+                    hide-details
+                  ></v-text-field>
                 <!-- single-line -->
+                </v-flex>
+              </v-layout>
             </v-card-title>
+
 
             <v-data-table
               @update:pagination="load()"
@@ -209,9 +222,5 @@ export default {
     max-width: 100%;
     padding-left: 5px;
     padding-right: 5px;
-  }
-  .new-member {
-    position: relative;
-    left: -5%;
   }
 </style>

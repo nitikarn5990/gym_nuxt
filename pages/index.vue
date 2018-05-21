@@ -15,9 +15,9 @@
 
           <v-card>
             <v-card-title>
-              <v-icon left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
-              All Members
-              <v-spacer></v-spacer>
+              <v-icon class="primary--text hidden-xs-only" left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
+              <h4 class="primary--text hidden-xs-only">All Members</h4>
+              <v-spacer class="hidden-xs-only"></v-spacer>
               <v-text-field
                 v-model="allmembers.name"
                 append-icon="search"
@@ -120,7 +120,7 @@ export default {
       this.loading=true
       setTimeout(() => {
         this.loading = false
-      }, 200)
+      }, 250)
     },
     allMembers () {
       this.loading = true

@@ -122,7 +122,7 @@
             <v-layout row justify-center text-xs-center mb-4>
               <v-flex xs12 sm6 offset-sm-3>
                 <v-btn type="submit" class="primary" round :disabled="!formIsValid">
-                  <v-icon left>fas fa-user-plus</v-icon>
+                  <v-icon left class="accent--text">fas fa-user-plus</v-icon>
                   Add New Member
                 </v-btn>
               </v-flex>

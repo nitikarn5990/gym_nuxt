@@ -12,26 +12,57 @@
       </v-layout>
       <v-layout row>
         <v-flex xs12>
-          <v-data-table
-            :headers="headers"
-            :items="allmembers"
-            hide-actions
-            class="elevation-1"
-          >
-            <template slot="items" slot-scope="props">
-              <td>{{props.item.name}}</td>
-              <td class="text-xs-right">{{props.item.mobile}}</td>
-              <td class="text-xs-right">{{props.item.monthlySubscription}}</td>
-              <td class="text-xs-right">{{props.item.date}}</td>
-              <td class="text-xs-right">{{props.item.address}}</td>
-              <td class="text-xs-right">
-                <v-btn :to="'/' + props.item.id" flat class="primary--text">
-                  <v-icon left>fas fa-eye</v-icon>
-                  View
-                </v-btn>
-              </td>
-            </template>
-          </v-data-table>
+
+          <v-card>
+            <v-card-title>
+              <v-icon left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
+              All Members
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="allmembers.name"
+                append-icon="search"
+                label="Search"
+                hide-details
+              ></v-text-field>
+                <!-- single-line -->
+            </v-card-title>
+
+            <v-data-table
+              @update:pagination="load()"
+              rows-per-page-text="Members Per Page :"
+              :rows-per-page-items="[5,10,15,20,25,50,100,{'text':'All','value':-1}]"
+              :loading="loading"
+              :headers="headers"
+              :items="allmembers"
+              :search="allmembers.name"
+              class="elevation-1"
+            >
+              <!-- hide-actions -->
+              <!-- <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear> -->
+              <template slot="items" slot-scope="props">
+                <!-- <td class="text-xs-left">{{props.index+1}}</td> -->
+                <td class="text-xs-left">{{props.item.name}}</td>
+                <td class="text-xs-left">{{props.item.mobile}}</td>
+                <td class="text-xs-left">{{props.item.monthlySubscription}}</td>
+                <td class="text-xs-left">{{props.item.date}}</td>
+                <td class="text-xs-left">{{props.item.address}}</td>
+                <td class="text-xs-center">
+                  <v-btn :to="'/' + props.item.id" flat class="primary--text">
+                    <v-icon left>fas fa-eye</v-icon>
+                    View
+                  </v-btn>
+                </td>
+              </template>
+
+              <template slot="pageText" slot-scope="props">
+                {{ props.pageStart }} - {{ props.pageStop }} Member of {{ props.itemsLength }} Members
+              </template>
+
+              <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                Your search for "{{ allmembers.name }}" found no results.
+              </v-alert>
+            </v-data-table>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>
@@ -64,24 +95,17 @@ export default {
     return {
       allmembers: [],
       headers: [
-        {
-          text: 'name',
-          align: 'left',
-          sortable: true,
-          value: 'name'
-        },
-        { text: 'Mobile', value: 'mobile', sortable: true },
-        { text: 'Monthly Subscription', value: 'monthlySubscription', sortable: true },
-        { text: 'Subscriped At', value: 'date', sortable: true },
-        { text: 'Address', value: 'address', sortable: true },
-        {
-          text: 'view',
-          align: 'center',
-          sortable: false
-        },
+        // { text: 'Id', value: '', align: 'left', sortable: false},
+        { text: 'name', value: 'name', align: 'left', sortable: true },
+        { text: 'Mobile', value: 'mobile', align: 'left', sortable: true },
+        { text: 'Monthly Subscription', value: 'monthlySubscription', align: 'left', sortable: true },
+        { text: 'Subscriped At', value: 'date', align: 'left', sortable: true },
+        { text: 'Address', value: 'address', align: 'left', sortable: true },
+        { text: 'view', align: 'center', sortable: false },
       ],
       user: false,
-      imgs: null
+      imgs: null,
+      loading: false
     }
   },
   created () {
@@ -92,7 +116,14 @@ export default {
     })
   },
   methods: {
+    load () {
+      this.loading=true
+      setTimeout(() => {
+        this.loading = false
+      }, 200)
+    },
     allMembers () {
+      this.loading = true
       firebase.database().ref('members').once('value')
         .then((data) => {
           const members = []
@@ -110,8 +141,10 @@ export default {
             })
           }
           this.allmembers = members
+          this.loading = false
         })
         .catch((error) => {
+          this.loading = false
           console.log(error.message)
         })
     },

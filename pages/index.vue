@@ -17,6 +17,8 @@
             <v-card-title>
               <v-icon class="primary--text hidden-xs-only" left style="font-size: 18px;">fas fa-users</v-icon> &emsp;
               <h4 class="primary--text hidden-xs-only">All Members</h4>
+              <v-spacer></v-spacer>
+              <newmember></newmember>
               <v-spacer class="hidden-xs-only"></v-spacer>
               <v-text-field
                 v-model="allmembers.name"
@@ -47,15 +49,24 @@
                 <td class="text-xs-left">{{props.item.date}}</td>
                 <td class="text-xs-left">{{props.item.address}}</td>
                 <td class="text-xs-center">
-                  <v-btn :to="'/' + props.item.id" flat class="primary--text">
+                  <v-btn :to="'/' + props.item.id" flat class="success--text mx-0">
                     <v-icon left>fas fa-eye</v-icon>
                     View
+                  </v-btn>
+                <!-- </td>
+                <td class="text-xs-center"> -->
+                  <update :info="props.item"></update>
+                <!-- </td>
+                <td class="text-xs-center"> -->
+                  <v-btn class="mx-0" flat color="red" @click="deleteMember(props.item.name, props.item.id)">
+                    <v-icon left>delete</v-icon>
+                    Delete
                   </v-btn>
                 </td>
               </template>
 
               <template slot="pageText" slot-scope="props">
-                {{ props.pageStart }} - {{ props.pageStop }} Member of {{ props.itemsLength }} Members
+                {{ props.pageStart }} - {{ props.pageStop }} Members of {{ props.itemsLength }} Members
               </template>
 
               <v-alert slot="no-results" :value="true" color="error" icon="warning">
@@ -86,22 +97,29 @@
 <script>
 import firebase from 'firebase'
 import carousel from '@/components/carousel'
+import update from '@/components/update'
+import newmember from '@/components/newmember'
 
 export default {
   components: {
-    carousel
+    carousel,
+    update,
+    newmember
   },
   data () {
     return {
       allmembers: [],
       headers: [
         // { text: 'Id', value: '', align: 'left', sortable: false},
-        { text: 'name', value: 'name', align: 'left', sortable: true },
+        { text: 'Name', value: 'name', align: 'left', sortable: true },
         { text: 'Mobile', value: 'mobile', align: 'left', sortable: true },
         { text: 'Monthly Subscription', value: 'monthlySubscription', align: 'left', sortable: true },
         { text: 'Subscriped At', value: 'date', align: 'left', sortable: true },
         { text: 'Address', value: 'address', align: 'left', sortable: true },
-        { text: 'view', align: 'center', sortable: false },
+        // { text: 'View', align: 'center', sortable: false },
+        // { text: 'Edit', align: 'center', sortable: false },
+        // { text: 'Delete', align: 'center', sortable: false },
+        { text: 'Actions', align: 'center', sortable: false },
       ],
       user: false,
       imgs: null,
@@ -162,6 +180,25 @@ export default {
           ]
         }
       })
+    },
+    deleteMember (name, id) {
+      if (confirm(`Are you sure that you want to delete ${name} ?`) === true) {
+        firebase.database().ref('members').once('value')
+          .then((data) => {
+            const members = []
+            const obj = data.val()
+            for (let key in obj) {
+              if (key == id) {
+                firebase.database().ref('members/' + key).remove()
+                alert(`${name} has been deleted successfully!`)
+                this.allMembers()
+              }
+            }
+          })
+          .catch((error) => {
+            console.log(error.message)
+          })
+      }
     },
   }
 }

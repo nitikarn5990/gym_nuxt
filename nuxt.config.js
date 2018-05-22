@@ -7,9 +7,6 @@ module.exports = {
   router: {
     mode: 'history',
     base: '/gym_nuxt/',
-    // routes: [
-    //   { path: '*', component: index }
-    // ]
   },
   mode: 'spa',
   head: {

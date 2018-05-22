@@ -191,6 +191,12 @@ export default {
             '/gym_nuxt/img/4.jpg',
             '/gym_nuxt/img/3.jpg',
           ]
+          // this.imgs = [
+          //   '/img/1.jpg',
+          //   '/img/2.jpg',
+          //   '/img/4.jpg',
+          //   '/img/3.jpg',
+          // ]
         }
       })
     },

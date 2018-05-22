@@ -7,6 +7,9 @@ module.exports = {
   router: {
     mode: 'history',
     base: '/gym_nuxt/',
+    routes: [
+      { path: '/:id', component: '@/pages/_memberId/index.vue' }
+    ]
   },
   mode: 'spa',
   head: {

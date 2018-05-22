@@ -6,7 +6,10 @@ module.exports = {
   // mode: 'universal',
   router: {
     mode: 'history',
-    base: '/gym_nuxt/'
+    base: '/gym_nuxt/',
+    // routes: [
+    //   { path: '*', component: index }
+    // ]
   },
   mode: 'spa',
   head: {

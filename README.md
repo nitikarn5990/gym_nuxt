@@ -1,4 +1,4 @@
-# [Gym App](https://osama-mohamed.github.io/gym_nuxt) By Nuxt.js
+# [Gym App](https://gym-nuxt.firebaseapp.com) By Nuxt.js
 * Gym App By Nuxt
 
 [<img src="https://nuxtjs.org/_nuxt/img/triangles.3c20c18.png" width="300" title="Gym App" >](https://github.com/osama-mohamed)
@@ -6,7 +6,10 @@
 
 
 ## For live preview :
-> [Gym App](https://osama-mohamed.github.io/gym_nuxt)
+> [Gym App on Firebase](https://gym-nuxt.firebaseapp.com)
+
+> [Gym App on Github Pages](https://osama-mohamed.github.io/gym_nuxt)
+
 
 
 ## Gym app contains: 

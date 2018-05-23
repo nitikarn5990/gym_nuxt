@@ -114,6 +114,26 @@
           </form>
         </v-flex>
       </v-layout>
+
+
+      <v-layout row justify-center>
+        <v-dialog persistent v-model="ConfirmModal" max-width="500">
+          <v-card>
+            <v-card-text>
+              <h3>New prices saved successfully!</h3>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn flat class="secondary--text" @click.native="ConfirmModalPrices()">
+                <v-icon left>check</v-icon>
+                OK
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-layout>
+
+
     </v-container>
   </v-app>
 </template>
@@ -132,6 +152,7 @@ export default {
       dayFitness: '',
       user: false,
       time: new Date(),
+      ConfirmModal: false
     }
   },
   created () {
@@ -167,8 +188,9 @@ export default {
       firebase.database().ref('prices').push(newPrice)
         .then(
           (data) => {
-            alert(`new prices saved successfully!`)
-            this.$router.push({name: 'index'})
+            // alert(`new prices saved successfully!`)
+            // this.$router.push({name: 'index'})
+            this.ConfirmModal = true
           return data
         })
         .catch(
@@ -177,6 +199,10 @@ export default {
           }
         )
     },
+    ConfirmModalPrices () {
+      this.ConfirmModal = false
+      this.$router.push({name: 'index'})
+    }
   }
 }
 </script>

@@ -95,7 +95,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn flat class="secondary--text" @click.native="ConfirmModalLogout()">
+            <v-btn flat class="primary--text" @click.native="ConfirmModalLogout()">
               <v-icon left>check</v-icon>
               OK
             </v-btn>

@@ -8,6 +8,9 @@ module.exports = {
     mode: 'history',
     base: '/gym_nuxt/'
   },
+  generate: {
+    fallback: true,
+  },
   mode: 'spa',
   head: {
     title: 'Gym',

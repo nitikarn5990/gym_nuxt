@@ -237,18 +237,18 @@ export default {
           this.user = true
         } else {
           this.user = false
-          this.imgs = [
-            '/gym_nuxt/img/1.jpg',
-            '/gym_nuxt/img/2.jpg',
-            '/gym_nuxt/img/4.jpg',
-            '/gym_nuxt/img/3.jpg',
-          ]
           // this.imgs = [
-          //   '/img/1.jpg',
-          //   '/img/2.jpg',
-          //   '/img/4.jpg',
-          //   '/img/3.jpg',
+          //   '/gym_nuxt/img/1.jpg',
+          //   '/gym_nuxt/img/2.jpg',
+          //   '/gym_nuxt/img/4.jpg',
+          //   '/gym_nuxt/img/3.jpg',
           // ]
+          this.imgs = [
+            '/img/1.jpg',
+            '/img/2.jpg',
+            '/img/4.jpg',
+            '/img/3.jpg',
+          ]
         }
       })
     },

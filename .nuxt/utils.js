@@ -113,13 +113,13 @@ export async function setContext(app, context) {
         return process.client
       },
       isStatic: process.static,
-      isDev: true,
+      isDev: false,
       isHMR: false,
       app,
       
       payload: context.payload,
       error: context.error,
-      base: '/gym_nuxt/',
+      base: '/',
       env: {}
     }
     // Only set once

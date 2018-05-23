@@ -82,6 +82,28 @@
         <nuxt />
       </v-container>
     </v-content>
+
+
+    <v-layout row justify-center>
+      <v-dialog persistent v-model="ConfirmModal" max-width="500">
+        <v-card>
+          <v-card-text>
+            <h3>
+              <span class="primary--text">{{MemberName}}</span>
+              logged out successfully!
+            </h3>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn flat class="secondary--text" @click.native="ConfirmModalLogout()">
+              <v-icon left>check</v-icon>
+              OK
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-layout>
+
   </v-app>
 </template>
 
@@ -95,7 +117,9 @@ import firebase from 'firebase'
       return {
         clipped: true,
         title: 'Gym',
-        userEmail: null
+        userEmail: null,
+        ConfirmModal: false,
+        MemberName: null
       }
     },
     created() {
@@ -103,12 +127,13 @@ import firebase from 'firebase'
     },
     methods: {
       logoutUser () {
-        alert(`${firebase.auth().currentUser.email} logged out successfully!`)
-        firebase.auth().signOut()
+        // alert(`${firebase.auth().currentUser.email} logged out successfully!`)
+        // firebase.auth().signOut()
         // this.$router.push({name: 'login'})
-        this.$router.push({name: 'index'})
-        this.userState()
-        this.$bus.$emit('logged')
+        // this.$router.push({name: 'index'})
+        // this.userState()
+        // this.$bus.$emit('logged')
+        this.ConfirmModal = true
       },
       userState () {
         firebase.auth().onAuthStateChanged((user) => {
@@ -118,7 +143,14 @@ import firebase from 'firebase'
             this.userEmail = null
           }
         })
-      }
+      },
+    ConfirmModalLogout () {
+      this.ConfirmModal = false
+      firebase.auth().signOut()
+      this.$router.push({name: 'index'})
+      this.userState()
+      this.$bus.$emit('logged')
+    }
     },
   }
 </script>

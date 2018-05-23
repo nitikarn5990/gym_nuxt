@@ -60,6 +60,28 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <v-layout row justify-center>
+      <v-dialog persistent v-model="ConfirmModal" max-width="500">
+        <v-card>
+          <v-card-text>
+            <h3>You logged in as
+              <span class="primary--text">{{MemberName}}</span>
+              successfully!
+            </h3>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn flat class="secondary--text" @click.native="ConfirmModalLogin()">
+              <v-icon left>check</v-icon>
+              OK
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-layout>
+
+
   </v-container>
 </template>
 
@@ -78,7 +100,9 @@ export default {
       password: '',
       error: false,
       errorMessage: '',
-      loading: false
+      loading: false,
+      ConfirmModal: false,
+      MemberName: null
     }
   },
   methods: {
@@ -88,8 +112,10 @@ export default {
         .then(
           user => {
             this.loading = false
-            alert(`You logged in as ${user.user.email}`)
-            this.$router.push({name: 'index'})
+            // alert(`You logged in as ${user.user.email}`)
+            // this.$router.push({name: 'index'})
+            this.MemberName = this.email
+            this.ConfirmModal = true
           }
         )
         .catch(
@@ -103,6 +129,10 @@ export default {
     onDismissed () {
       this.error = false
       this.loading = false
+    },
+    ConfirmModalLogin () {
+      this.ConfirmModal = false
+      this.$router.push({name: 'index'})
     }
   }
 }

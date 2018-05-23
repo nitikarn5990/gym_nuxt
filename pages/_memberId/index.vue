@@ -29,6 +29,53 @@
             <v-icon left>delete</v-icon>
             Delete
           </v-btn>
+
+
+          <v-layout row justify-center>
+            <v-dialog persistent v-model="deleteModal" max-width="500">
+              <v-card>
+                <v-card-text>
+                  <h3>Are you sure that you want to delete 
+                    <span class="primary--text">{{memberDetail.name}}
+                    </span> ?
+                  </h3>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="red" flat @click.native="deleteMemberModal()">
+                    <v-icon left>delete</v-icon>
+                    Delete
+                  </v-btn>
+                  <v-btn flat class="secondary--text" @click.native="deleteModal = false">
+                    <v-icon left>close</v-icon>
+                    Close
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+          
+          <v-layout row justify-center>
+            <v-dialog persistent v-model="ConfirmModal" max-width="500">
+              <v-card>
+                <v-card-text>
+                  <h3>
+                    <span class="primary--text">{{memberDetail.name}}</span>
+                    has been deleted successfully!
+                  </h3>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn flat class="secondary--text" @click.native="ConfirmModalDelete()">
+                    <v-icon left>check</v-icon>
+                    OK
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+
+
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -46,7 +93,9 @@ export default {
   data () {
     return {
       memberDetail: {},
-      user: false
+      user: false,
+      deleteModal: false,
+      ConfirmModal: false
     }
   },
   methods: {
@@ -76,23 +125,45 @@ export default {
         })
     },
     deleteMember () {
-      if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {
-        firebase.database().ref('members').once('value')
-          .then((data) => {
-            const members = []
-            const obj = data.val()
-            for (let key in obj) {
-              if (key == this.$route.params.memberId) {
-                firebase.database().ref('members/' + key).remove()
-                alert(`${this.memberDetail.name} has been deleted successfully!`)
-                this.$router.push({name: 'index'})
-              }
+      // if (confirm(`Are you sure that you want to delete ${this.memberDetail.name} ?`) === true) {
+      //   firebase.database().ref('members').once('value')
+      //     .then((data) => {
+      //       const members = []
+      //       const obj = data.val()
+      //       for (let key in obj) {
+      //         if (key == this.$route.params.memberId) {
+      //           firebase.database().ref('members/' + key).remove()
+      //           alert(`${this.memberDetail.name} has been deleted successfully!`)
+      //           this.$router.push({name: 'index'})
+      //         }
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.log(error.message)
+      //     })
+      // }
+      this.deleteModal = true
+    },
+    deleteMemberModal () {
+      this.deleteModal = false
+      firebase.database().ref('members').once('value')
+        .then((data) => {
+          const members = []
+          const obj = data.val()
+          for (let key in obj) {
+            if (key == this.$route.params.memberId) {
+              firebase.database().ref('members/' + key).remove()
+              this.ConfirmModal = true
             }
-          })
-          .catch((error) => {
-            console.log(error.message)
-          })
-      }
+          }
+        })
+        .catch((error) => {
+          console.log(error.message)
+        })
+    },
+    ConfirmModalDelete () {
+      this.ConfirmModal = false
+      this.$router.push({name: 'index'})
     },
     userState () {
       firebase.auth().onAuthStateChanged((user) => {

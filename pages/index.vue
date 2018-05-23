@@ -76,6 +76,54 @@
                     Delete
                   </v-btn>
                 </td>
+
+
+                <v-layout row justify-center>
+                  <v-dialog persistent v-model="deleteModal" max-width="500">
+                    <v-card>
+                      <v-card-text>
+                        <h3>Are you sure that you want to delete 
+                          <span class="primary--text">{{memberName}}
+                          </span> ?
+                        </h3>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="red" flat @click.native="deleteMemberModal()">
+                          <v-icon left>delete</v-icon>
+                          Delete
+                        </v-btn>
+                        <v-btn flat class="secondary--text" @click.native="deleteModal = false">
+                          <v-icon left>close</v-icon>
+                          Close
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </v-layout>
+                
+                <v-layout row justify-center>
+                  <v-dialog persistent v-model="ConfirmModal" max-width="500">
+                    <v-card>
+                      <v-card-text>
+                        <h3>
+                          <span class="primary--text">{{memberName}}</span>
+                          has been deleted successfully!
+                        </h3>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn flat class="secondary--text" @click.native="ConfirmModalDelete()">
+                          <v-icon left>check</v-icon>
+                          OK
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </v-layout>
+
+
+
               </template>
 
               <template slot="pageText" slot-scope="props">
@@ -136,7 +184,11 @@ export default {
       ],
       user: false,
       imgs: null,
-      loading: false
+      loading: false,
+      deleteModal: false,
+      ConfirmModal: false,
+      memberName: null,
+      memberId: null
     }
   },
   created () {
@@ -201,23 +253,47 @@ export default {
       })
     },
     deleteMember (name, id) {
-      if (confirm(`Are you sure that you want to delete ${name} ?`) === true) {
-        firebase.database().ref('members').once('value')
-          .then((data) => {
-            const members = []
-            const obj = data.val()
-            for (let key in obj) {
-              if (key == id) {
-                firebase.database().ref('members/' + key).remove()
-                alert(`${name} has been deleted successfully!`)
-                this.allMembers()
-              }
+      // if (confirm(`Are you sure that you want to delete ${name} ?`) === true) {
+      //   firebase.database().ref('members').once('value')
+      //     .then((data) => {
+      //       const members = []
+      //       const obj = data.val()
+      //       for (let key in obj) {
+      //         if (key == id) {
+      //           firebase.database().ref('members/' + key).remove()
+      //           alert(`${name} has been deleted successfully!`)
+      //           this.allMembers()
+      //         }
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.log(error.message)
+      //     })
+      // }
+      this.deleteModal = true
+      this.memberName = name
+      this.memberId = id
+    },
+    deleteMemberModal () {
+      this.deleteModal = false
+      firebase.database().ref('members').once('value')
+        .then((data) => {
+          const members = []
+          const obj = data.val()
+          for (let key in obj) {
+            if (key == this.memberId) {
+              firebase.database().ref('members/' + key).remove()
+              this.ConfirmModal = true
             }
-          })
-          .catch((error) => {
-            console.log(error.message)
-          })
-      }
+          }
+        })
+        .catch((error) => {
+          console.log(error.message)
+        })
+    },
+    ConfirmModalDelete () {
+      this.ConfirmModal = false
+      this.allMembers()
     },
   }
 }

@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-dialog width="549px" persistent v-model="editDialog">
     <v-btn flat class="primary--text" slot="activator" @click="fillDialog()">
       <v-icon left>edit</v-icon>
@@ -131,6 +132,29 @@
       </v-container>
     </v-card>
   </v-dialog>
+
+  <v-layout row justify-center>
+    <v-dialog persistent v-model="ConfirmModal" max-width="500">
+      <v-card>
+        <v-card-text>
+          <h3>Member
+            <span class="primary--text">{{MemberName}}</span>
+            updated successfully!
+          </h3>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat class="secondary--text" @click.native="ConfirmModalUpdate()">
+            <v-icon left>check</v-icon>
+            OK
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-layout>
+
+
+  </div>
 </template>
 
 <script>
@@ -148,6 +172,8 @@ export default {
       editNotes: this.info.notes,
       editDate: this.info.date,
       editDialog: false,
+      ConfirmModal: false,
+      MemberName: null
     }
   },
   methods: {
@@ -198,13 +224,19 @@ export default {
 
       firebase.database().ref('members').child(this.$route.params.memberId).update(updateMember)
         .then(() => {
-          alert(`${this.info.name} updated successfully!`)
+          // alert(`${this.info.name} updated successfully!`)
+          this.ConfirmModal = true
+          this.MemberName = this.info.name
         })
         .catch(error => {
-          alert(error.message)
+          console.log(error.message)
         })
+      // this.$parent.$parent.fetchMember()
+    },
+    ConfirmModalUpdate () {
+      this.ConfirmModal = false
       this.$parent.$parent.fetchMember()
-    }
+    },
   },
   created () {
     this.fillDialog()

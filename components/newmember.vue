@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-dialog width="549px" persistent v-model="editDialog">
     <v-btn flat class="primary--text mx-0" slot="activator">
       <v-icon left>fas fa-user-plus</v-icon>
@@ -144,6 +145,29 @@
       </v-container>
     </v-card>
   </v-dialog>
+
+
+  <v-layout row justify-center>
+    <v-dialog persistent v-model="ConfirmModal" max-width="500">
+      <v-card>
+        <v-card-text>
+          <h3>new member
+            <span class="primary--text">{{MemberName}}</span>
+            saved successfully!
+          </h3>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat class="secondary--text" @click.native="ConfirmModalCreate()">
+            <v-icon left>check</v-icon>
+            OK
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-layout>
+
+  </div>
 </template>
 
 <script>
@@ -162,7 +186,9 @@ export default {
       date: '',
       user: false,
       time: new Date(),
-      editDialog: false
+      editDialog: false,
+      ConfirmModal: false,
+      MemberName: null
     }
   },
   created () {
@@ -217,8 +243,10 @@ export default {
       firebase.database().ref('members').push(newMember)
         .then(
           (data) => {
-            alert(`new member ${newMember.name} saved successfully!`)
-            this.$parent.$parent.$parent.allMembers()
+            // alert(`new member ${newMember.name} saved successfully!`)
+            // this.$parent.$parent.$parent.allMembers()
+            this.ConfirmModal = true
+            this.MemberName = newMember.name
           return data
         })
         .catch(
@@ -227,6 +255,10 @@ export default {
           }
         )
     },
+    ConfirmModalCreate () {
+      this.ConfirmModal = false
+      this.$parent.$parent.$parent.allMembers()
+    }
   }
 }
 </script>

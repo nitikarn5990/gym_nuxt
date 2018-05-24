@@ -87,6 +87,7 @@
                           </span> ?
                         </h3>
                       </v-card-text>
+                      <v-divider></v-divider>
                       <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="red" flat @click.native="deleteMemberModal()">
@@ -111,6 +112,7 @@
                           has been deleted successfully!
                         </h3>
                       </v-card-text>
+                      <v-divider></v-divider>
                       <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn flat class="primary--text" @click.native="ConfirmModalDelete()">
@@ -237,18 +239,18 @@ export default {
           this.user = true
         } else {
           this.user = false
-          // this.imgs = [
-          //   '/gym_nuxt/img/1.jpg',
-          //   '/gym_nuxt/img/2.jpg',
-          //   '/gym_nuxt/img/4.jpg',
-          //   '/gym_nuxt/img/3.jpg',
-          // ]
           this.imgs = [
-            '/img/1.jpg',
-            '/img/2.jpg',
-            '/img/4.jpg',
-            '/img/3.jpg',
+            '/gym_nuxt/img/1.jpg',
+            '/gym_nuxt/img/2.jpg',
+            '/gym_nuxt/img/4.jpg',
+            '/gym_nuxt/img/3.jpg',
           ]
+          // this.imgs = [
+          //   '/img/1.jpg',
+          //   '/img/2.jpg',
+          //   '/img/4.jpg',
+          //   '/img/3.jpg',
+          // ]
         }
       })
     },

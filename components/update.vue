@@ -140,6 +140,7 @@
             updated successfully!
           </h3>
         </v-card-text>
+        <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn flat class="primary--text" @click.native="ConfirmModalUpdate()">
@@ -170,6 +171,7 @@ export default {
       editMonthlySubscription: this.info.monthlySubscription,
       editNotes: this.info.notes,
       editDate: this.info.date,
+      time: new Date(),
       editDialog: false,
       ConfirmModal: false,
       MemberName: null
@@ -220,6 +222,7 @@ export default {
       if (this.editDate) {
         updateMember.date = this.editDate
       }
+      updateMember.updatedAt = this.time.toJSON()
 
       firebase.database().ref('members').child(this.info.id).update(updateMember)
         .then(() => {

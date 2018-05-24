@@ -122,6 +122,7 @@
             <v-card-text>
               <h3>New prices saved successfully!</h3>
             </v-card-text>
+            <v-divider></v-divider>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn flat class="primary--text" @click.native="ConfirmModalPrices()">

@@ -22,8 +22,8 @@ const createNext = ssrContext => opts => {
   }
   opts.query = stringify(opts.query)
   opts.path = opts.path + (opts.query ? '?' + opts.query : '')
-  if (opts.path.indexOf('http') !== 0 && ('/' !== '/' && opts.path.indexOf('/') !== 0)) {
-    opts.path = urlJoin('/', opts.path)
+  if (opts.path.indexOf('http') !== 0 && ('/gym_nuxt/' !== '/' && opts.path.indexOf('/gym_nuxt/') !== 0)) {
+    opts.path = urlJoin('/gym_nuxt/', opts.path)
   }
   // Avoid loop redirect
   if (opts.path === ssrContext.url) {

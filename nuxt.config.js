@@ -4,13 +4,13 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   // mode: 'universal',
-  // router: {
-  //   mode: 'history',
-  //   base: '/gym_nuxt/'
-  // },
-  // generate: {
-  //   fallback: true,
-  // },
+  router: {
+    mode: 'history',
+    base: '/gym_nuxt/'
+  },
+  generate: {
+    fallback: true,
+  },
   mode: 'spa',
   head: {
     title: 'Gym',
@@ -20,8 +20,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/dumbbell.png' },
-      // { rel: 'icon', type: 'image/x-icon', href: '/gym_nuxt/dumbbell.png' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/dumbbell.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/gym_nuxt/dumbbell.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' }
     ]

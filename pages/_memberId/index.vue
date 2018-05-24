@@ -17,7 +17,9 @@
               <br>
               <strong>Member Id : </strong>{{memberDetail.memberId}}
               <br>
-              <strong>created At : </strong>{{memberDetail.createdAt | DateTime}}
+              <strong>Created At : </strong>{{memberDetail.createdAt | DateTime}}
+              <br>
+              <strong>Updated At : </strong>{{memberDetail.updatedAt | DateTime}}
               <br>
               <strong>Notes : </strong>{{memberDetail.notes}}
             </div>
@@ -40,6 +42,7 @@
                     </span> ?
                   </h3>
                 </v-card-text>
+                <v-divider></v-divider>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="red" flat @click.native="deleteMemberModal()">
@@ -64,6 +67,7 @@
                     has been deleted successfully!
                   </h3>
                 </v-card-text>
+                <v-divider></v-divider>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn flat class="primary--text" @click.native="ConfirmModalDelete()">
@@ -115,7 +119,8 @@ export default {
                 notes: obj[key].notes,
                 date: obj[key].date,
                 memberId: obj[key].memberId,
-                createdAt: obj[key].createdAt
+                createdAt: obj[key].createdAt,
+                updatedAt: obj[key].updatedAt
               }
             }
           }

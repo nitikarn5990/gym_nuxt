@@ -1,7 +1,7 @@
 # [Gym App](https://gym-nuxt.firebaseapp.com) By Nuxt.js
 * Gym App By Nuxt
 
-[<img src="https://nuxtjs.org/_nuxt/img/triangles.3c20c18.png" width="300" title="Gym App" >](https://github.com/osama-mohamed)
+[<img src="https://www.osamamohamed.com/img/icons/svg/nuxt/nuxt.png" width="300" title="Gym App" >](https://github.com/osama-mohamed)
 [<img src="https://firebase.google.com/images/brand-guidelines/logo-standard.png" width="550" title="Gym App">](https://github.com/osama-mohamed)
 
 
